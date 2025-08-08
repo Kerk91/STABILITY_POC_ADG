@@ -1,6 +1,6 @@
 # STABILITY_POC - File Authentication on the Global Trust Network
 
-This is a Next.js application that allows users to securely verify and manage file authenticity using blockchain technology through the Global Trust Network (GTN).
+Demo pplication that allows users to securely verify and manage file authenticity using blockchain technology through the Global Trust Network (GTN).
 
 ## 🌐 Live Demo
 
@@ -10,15 +10,21 @@ Try the sample application at **[https://stblchain.io/](https://stblchain.io/)**
 
 Head over to **[https://portal.stabilityprotocol.com/](https://portal.stabilityprotocol.com/)** to generate your API key.
 
-Your API key will look something like `whay3333a6u2`
+Your API key will look something like `whay3333a6u2`.
+
+For this example we will use the following ZKT v2 to communicate with the Network.
+For more information please head over to **[https://docs.stabilityprotocol.com/developers/zkt](https://docs.stabilityprotocol.com/developers/zkt)**
+to learn more about the parameters of the endpoint(eg. abi,to,method,id,arguments ).
 
 ## Smart Contract Implementation
 
 `contract/FileHash.sol`.
 
-## Direct Enquiry to Blockchain
+## Direct Enquiry/Update to the Network
 
-### 🔍 `verifyFile(fingerprint)` - Read/Verify File Records
+Sample Endpoint: `https://rpc.stabilityprotocol.com/zkt/[Your API Key]`
+
+### 🔍 `verifyFile(fingerprint)` - Verify File Records
 
 Checks if a file fingerprint exists on the blockchain and retrieves its metadata.
 
