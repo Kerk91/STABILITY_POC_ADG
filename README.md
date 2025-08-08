@@ -20,28 +20,11 @@ The blockchain service provides two core functions for interacting with the Glob
 
 Checks if a file exists on the blockchain and retrieves its metadata.
 
-**Parameters:**
+| Parameter     | Type   | Description                                          | Sample Value                                                         |
+| ------------- | ------ | ---------------------------------------------------- | -------------------------------------------------------------------- |
+| `fingerprint` | string | SHA-256 hash of the file (with or without 0x prefix) | `0x8687fa37d02e6d2ce4a27dcd5cb36caf0fac1e26c9879df46a00e4d009c1dab1` |
 
-- `fingerprint` (string): SHA-256 hash of the file (with or without 0x prefix)
-
-**Returns:**
-
-- `BlockchainRecord | null`: File record if found, null if not found
-
-**Example Usage:**
-
-```typescript
-import { verifyFile } from "./services/blockchain";
-
-const record = await verifyFile("abc123def456..."); // SHA-256 hash
-if (record) {
-  console.log(`File: ${record.fileName}`);
-  console.log(`Category: ${record.category}`);
-  console.log(`Timestamp: ${new Date(record.timestamp * 1000)}`);
-} else {
-  console.log("File not found on blockchain");
-}
-```
+**Returns:** `BlockchainRecord | null` - File record if found, null if not found
 
 **📋 Sample cURL Command (click code block to select all):**
 
@@ -65,35 +48,14 @@ curl -X POST "https://rpc.stabilityprotocol.com/zkt/try-it-out" \
 
 Stores a new file record on the blockchain.
 
-**Parameters:**
+| Parameter     | Type              | Description                  | Sample Value                                                         |
+| ------------- | ----------------- | ---------------------------- | -------------------------------------------------------------------- |
+| `fileName`    | string            | Name of the file             | `example.jpg`                                                        |
+| `fingerprint` | string            | SHA-256 hash of the file     | `0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef` |
+| `category`    | string            | File category                | `image`                                                              |
+| `metadata`    | string (optional) | Additional metadata to store | `photographer=John Doe;location=NYC`                                 |
 
-- `fileName` (string): Name of the file
-- `fingerprint` (string): SHA-256 hash of the file
-- `category` (string): File category ("image", "video", "audio", "others")
-- `metadata` (string, optional): Additional metadata to store
-
-**Returns:**
-
-- `string | null`: Transaction hash if successful, null if failed
-
-**Example Usage:**
-
-```typescript
-import { writeRecord } from "./services/blockchain";
-
-const txHash = await writeRecord(
-  "example.jpg",
-  "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", // SHA-256 hash
-  "image",
-  "photographer=John Doe;location=NYC" // Optional metadata
-);
-
-if (txHash) {
-  console.log(`Transaction submitted: ${txHash}`);
-} else {
-  console.log("Failed to write record");
-}
-```
+**Returns:** `string | null` - Transaction hash if successful, null if failed
 
 **📋 Sample cURL Command (click code block to select all):**
 
