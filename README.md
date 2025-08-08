@@ -2,31 +2,31 @@
 
 This is a Next.js application that allows users to securely verify and manage file authenticity using blockchain technology through the Global Trust Network (GTN).
 
+## 🌐 Live Demo
+
+Try the sample application at **[https://stblchain.io/](https://stblchain.io/)** to see the blockchain file verification system in action!
+
 ## 🔧 Configuration
 
-Create a `.env` file based on `.env_sample`:
+Head over to **[https://portal.stabilityprotocol.com/](https://portal.stabilityprotocol.com/)** to generate your API key.
 
-```bash
-# Global Trust Network Configuration
-NEXT_PUBLIC_STABILITY_API=https://rpc.stabilityprotocol.com/zkt/your_api_endpoint_here
-NEXT_PUBLIC_CONTRACT_ADDRESS=0xYourContractAddressHere
-```
+Your API key will look something like `whay3333a6u2`
 
-## Blockchain Service API
+## Smart Contract Implementation
 
-The blockchain service provides two core functions for interacting with the Global Trust Network. All operations are handled through `services/blockchain.ts`.
+`contract/FileHash.sol`.
+
+## Direct Enquiry to Blockchain
 
 ### 🔍 `verifyFile(fingerprint)` - Read/Verify File Records
 
-Checks if a file exists on the blockchain and retrieves its metadata.
+Checks if a file fingerprint exists on the blockchain and retrieves its metadata.
 
 | Parameter     | Type   | Description                                          | Sample Value                                                         |
 | ------------- | ------ | ---------------------------------------------------- | -------------------------------------------------------------------- |
 | `fingerprint` | string | SHA-256 hash of the file (with or without 0x prefix) | `0x8687fa37d02e6d2ce4a27dcd5cb36caf0fac1e26c9879df46a00e4d009c1dab1` |
 
 **Returns:** `BlockchainRecord | null` - File record if found, null if not found
-
-**📋 Sample cURL Command (click code block to select all):**
 
 ```bash
 curl -X POST "https://rpc.stabilityprotocol.com/zkt/try-it-out" \
@@ -39,8 +39,6 @@ curl -X POST "https://rpc.stabilityprotocol.com/zkt/try-it-out" \
     "arguments": ["0x8687fa37d02e6d2ce4a27dcd5cb36caf0fac1e26c9879df46a00e4d009c1dab1"]
   }'
 ```
-
-> 💡 **Tip:** Click inside the code block above, then use `Ctrl+A` (or `Cmd+A` on Mac) to select all, then `Ctrl+C` to copy!
 
 ---
 
@@ -56,8 +54,6 @@ Stores a new file record on the blockchain.
 | `metadata`    | string (optional) | Additional metadata to store | `photographer=John Doe;location=NYC`                                 |
 
 **Returns:** `string | null` - Transaction hash if successful, null if failed
-
-**📋 Sample cURL Command (click code block to select all):**
 
 ```bash
 curl -X POST "https://rpc.stabilityprotocol.com/zkt/try-it-out" \
@@ -75,8 +71,6 @@ curl -X POST "https://rpc.stabilityprotocol.com/zkt/try-it-out" \
     ]
   }'
 ```
-
-> 💡 **Tip:** Click inside the code block above, then use `Ctrl+A` (or `Cmd+A` on Mac) to select all, then `Ctrl+C` to copy!
 
 > ⚠️ **Important:** If you get an error "File hash already stored", it means this hash is already on the blockchain! Please replace `0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef` with your actual file's SHA-256 hash or a different test hash.
 
@@ -102,3 +96,7 @@ interface BlockchainRecord {
 - **Video** (1)
 - **Audio** (2)
 - **Others** (3)
+
+## Reference Implementation
+
+Can be found at `services/blockchain.ts`.
