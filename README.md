@@ -88,9 +88,9 @@ curl -X POST "https://rpc.stabilityprotocol.com/zkt/try-it-out" \
 ```typescript
 interface BlockchainRecord {
   fileName: string; // Name of the file
-  fileHash: string; // SHA-256 hash (0x prefixed)
+  fileHash: string; // SHA-256 hash (0x prefixed bytes32)
   timestamp: number; // Unix timestamp
-  category: string; // File category (image, video, audio, others)
+  category: string; // File category (image 0 , video 1, audio 2, others 3)
   data?: string; // Optional metadata string
 }
 ```
