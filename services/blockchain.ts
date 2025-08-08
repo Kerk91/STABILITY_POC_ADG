@@ -74,7 +74,7 @@ async function makeApiCall(method: string, args: unknown[]): Promise<any> {
       to: CONTRACT_ADDRESS,
       method,
       id: Date.now(),
-      arguments: args,
+      arguments: args, // Look at Readme.md for more information
     }),
   });
 
