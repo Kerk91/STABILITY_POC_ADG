@@ -1,6 +1,6 @@
 # STABILITY_POC - File Authentication on the Global Trust Network
 
-Demo application that allows users to securely verify and manage file authenticity using blockchain technology through the Global Trust Network (GTN).
+Allows users to securely verify and manage file authenticity using blockchain technology through the Global Trust Network (GTN).
 
 ---
 
@@ -18,12 +18,6 @@ Your API key will look something like `whay3333a6u2`.
 
 For this example we will use the following ZKT v2 to communicate with the Network.
 For more information please head over to **[https://docs.stabilityprotocol.com/developers/zkt](https://docs.stabilityprotocol.com/developers/zkt)** to learn more about the parameters of the endpoint (eg. abi,to,method,id,arguments).
-
----
-
-## Environment/Data Implementation
-
-`contract/FileHash.sol`.
 
 ---
 
@@ -103,15 +97,12 @@ interface BlockchainRecord {
 
 ---
 
-## 🗂️ Supported Categories
+## Environment/Data Implementation
 
-- **Image** (0)
-- **Video** (1)
-- **Audio** (2)
-- **Others** (3)
+`contract/FileHash.sol`.
 
 ---
 
 ## Reference Implementation
 
-Can be found at `services/blockchain.ts`.
+`services/blockchain.ts`.
