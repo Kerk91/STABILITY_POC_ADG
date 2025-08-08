@@ -2,6 +2,8 @@
 
 Allows users to securely verify and manage file authenticity using blockchain technology through the Global Trust Network (GTN).
 
+![System Context Diagram](ContextDiagram.png)
+
 ---
 
 ## 🌐 Live Demo
