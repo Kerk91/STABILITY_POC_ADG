@@ -21,7 +21,7 @@ For more information please head over to **[https://docs.stabilityprotocol.com/d
 
 ---
 
-## Smart Contract Implementation
+## Environment/Data Implementation
 
 `contract/FileHash.sol`.
 
